@@ -1,0 +1,247 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashboard";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f6f9;
+        background-image: url('https://www.storehub.com/th/wp-content/uploads/sites/4/2021/12/StoreHub-POS-system-software-and-hardware-1.jpg'); /* Replace with your background image URL */
+        background-size: 65% auto; /* Adjust the size of the background image (65% of the width) */
+        background-position: 60% center;
+        background-attachment: fixed;
+        background-repeat: no-repeat; /* Prevent the background image from repeating */
+    }
+
+
+    .success-message {
+        color: green;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .topbar {
+        background-color: rgba(52, 58, 64, 0.8); /* Semi-transparent for better visibility */
+        color: #fff;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+        .topbar h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .topbar div {
+            font-size: 16px;
+        }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        color: #fff;
+    }
+
+    .about-section {
+        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        width: 80%;
+        max-width: 900px;
+    }
+
+        .about-section h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+    .highlight {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .stat-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .stat-card {
+        background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        width: 45%;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-card h4 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .stat-card p {
+            font-size: 20px;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+    /* Responsive design */
+    media (max-width: 768px) {
+        .stat-card
+
+    {
+        width: 100%;
+    }
+    }
+</style>
+
+<div class="topbar">
+    <h3>Admin Dashboard</h3>
+    <div>
+        <span>Welcome, Admin</span>
+    </div>
+</div>
+
+<!-- Display success message if TempData has it -->
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="content">
+    <!-- About SPC Section -->
+    <div class="about-section">
+        <head>
+            <meta charset="UTF-8">
+            <title>About Gadget Hub</title>
+            <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+                .about-section {
+                    max-width: 1000px;
+                    margin: 50px auto;
+                    background-color: #ffffff;
+                    padding: 30px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    border-radius: 12px;
+                    display: flex;
+                    gap: 30px;
+                    align-items: center;
+                }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            color: #1e88e5;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+            </style>
+        </head>
+    
+
+            
+                <div class="about-text">
+                    <h2>About Gadget Hub</h2>
+                    <p><strong>Gadget Hub</strong> is a modern e-commerce platform that specializes in the latest and most innovative gadgets.</p>
+                    <p>Unlike traditional retailers, Gadget Hub doesn't maintain its own inventory. Instead, it partners with trusted distributors like <strong>TechWorld</strong>, <strong>ElectroCom</strong>, and <strong>Gadget Central</strong> to fulfill customer orders quickly and affordably.</p>
+                    <p>The platform ensures real-time comparison of prices, stock availability, and delivery times giving customers the best value and speed without compromising on quality.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/75067585/3061565789.jpg" alt="Gadget Hub">
+                </div>
+            
+
+        
+
+
+
+
+    </div>
+
+    <!-- Admin Specific Section -->
+    <!-- Key Statistics Section -->
+
+
+</div>
+
+
